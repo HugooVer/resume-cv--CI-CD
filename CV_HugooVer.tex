@@ -1,0 +1,163 @@
+\documentclass[10pt,a4paper]{article}
+
+% Encodage et langue
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % use scalable Latin Modern fonts to enable microtype features
+\usepackage[french]{babel}
+
+% Mise en page
+\usepackage[margin=1cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\pagestyle{empty}
+% \linespread{0.96} % valeur légère pour ne pas que ça fasse "écrasé"
+
+% Liens cliquables
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype} % améliore la typographie
+\usepackage{enumitem} % pour contrôler les listes
+\setlist[itemize]{left=0pt,itemsep=0pt,topsep=0pt,parsep=0pt,label=\textbullet,nosep}
+\urlstyle{same} % affiche les url dans la même police
+\hypersetup{
+  pdfauthor={HugooVer},
+  pdflang={fr},
+  pdftitle={CV - HugooVer - Stage DevOps},
+  pdfkeywords={CV, DevOps, Docker, CI/CD, Linux},
+  pdfsubject={Recherche stage DevOps 6 mois}
+}
+
+% Pour mieux aligner les infos
+\usepackage{array}
+
+% Couleurs
+\usepackage{xcolor}
+\definecolor{sectioncolor}{RGB}{221,72,20}
+
+% Commandes perso
+\newcommand{\nom}{\detokenize{${NAME}}}
+\newcommand{\poste}{Stage DevOps}
+\newcommand{\mail}{\detokenize{${MAIL}}}
+\newcommand{\phone}{\detokenize{${PHONE}}}
+
+
+\newcommand{\cvsection}[1]{%
+\vspace{0.8em}
+{\large\bfseries\textcolor{sectioncolor}{#1}}\\[-0.5em]
+\rule{\linewidth}{0.4pt}\vspace{-0.2em}
+}
+
+\begin{document}
+
+% =========================
+% En-tête
+% =========================
+\begin{minipage}[t]{0.6\textwidth}
+  {\huge \textbf{\nom}}\\[0.2em]
+  {\large \poste}\\[0.5em]
+  \textit{Recherche un stage de DevOps de 6 mois}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+  % Remplace les valeurs ci-dessous
+  \begin{tabular}{@{}ll}
+    Téléphone : & \phone \\
+    Email : & \href{mailto:\mail}{\mail{}} \\
+    GitHub : & \href{https://github.com/HugooVer}{github.com/HugooVer} \\
+    Ville : & Paris 02, France \\
+  \end{tabular}
+\end{minipage}
+
+\vspace{0.4em}
+
+% =========================
+% Objectif
+% =========================
+\cvsection{Objectif}
+
+Étudiant à l'école \textbf{42 Paris}, je recherche un \textbf{stage de 6 mois} en \textbf{DevOps} afin de mettre en pratique et d’augmenter mes compétences en administration système, automatisation et gestion d'infrastructure, et de découvrir le fonctionnement d'une équipe de production.
+
+% =========================
+% Formation
+% =========================
+\cvsection{Formation}
+
+\textbf{École 42 Paris} \hfill Depuis fin 2022 \\
+Parcours : Développement/tronc commun \\
+\textit{Compétences principales :} logique de programmation, travail en équipe, projets concrets, auto-apprentissage
+
+\vspace{0.4em}
+
+\textbf{BTS SN-IR} \hfill 2022 \\
+ESME Sudria, Paris
+\begin{itemize}[left=0pt, label=\textbullet, nosep]
+  \item Spécialité : Systèmes Numériques Option Informatique et Réseaux
+\end{itemize}
+
+% =========================
+% Compétences techniques
+% =========================
+\cvsection{Compétences techniques}
+
+\textbf{Systèmes} : Linux (OS principal), lignes de commande (bash/sh), gestion des services, des utilisateurs et des droits\\
+\textbf{Réseau} : Notions TCP/IP, SSH, DNS, HTTP/s\\
+\textbf{DevOps} : Docker, scripts d'automatisation, CI/CD\\
+\textbf{Développement} : Python, Shell, C/C++\\
+\textbf{Outils} : Git, VS Code
+
+% =========================
+% Projets (école / perso)
+% =========================
+\cvsection{Projets}
+
+\textbf{\href{https://github.com/HugooVer/discord-repo-updater}{Packaging et mise à jour d’un logiciel tiers via dépôt APT local (Docker + systemd)}}\\
+\textit{Projet personnel}
+\begin{itemize}[left=0pt, label=\textbullet, nosep]
+  \item Création d’un dépôt APT local alimenté par un conteneur Docker (récupération du paquet .deb officiel)
+  \item Automatisation avec systemd et scripts Bash ; mise à niveau via apt upgrade comme un paquet standard
+  \item Documentation d’usage et bonnes pratiques (gestion des permissions, sécurité, flux apt update/apt upgrade)
+\end{itemize}
+
+\vspace{0.4em}
+
+\textbf{\href{https://github.com/HugooVer/CI_CD_Explorer}{Découverte CI/CD}}\\
+\textit{Projet personnel}
+\begin{itemize}[left=0pt, label=\textbullet, nosep]
+  \item Développement d’une petite API REST en Python avec FastAPI et tests automatisés via pytest
+  \item Mise en place d’une chaîne CI GitHub Actions (installation des dépendances, exécution des tests sur chaque push/pull request)
+  \item Implémentation du CD via conteneur Docker et publication d’images versionnées/tagées sur GitHub Container Registry
+\end{itemize}
+
+% =========================
+% Expériences
+% =========================
+
+\cvsection{Expériences professionnelles}
+
+\textbf{Responsable informatique/Responsable Pédagogie/Animateur} \hfill Depuis 2020 \\
+Les Petits Atomes, Paris
+\begin{itemize}[left=0pt, label=\textbullet, nosep]
+  \item Création et maintien d'un parc de Raspberry Pi à usage d'ordinateur pour des enfants
+  \item Création d'animations informatiques et scientifiques pour des enfants
+  \item Animation d'ateliers informatiques, robotique et scientifiques
+\end{itemize}
+
+% =========================
+% Langues
+% =========================
+\cvsection{Langues}
+
+Français : langue maternelle \\
+Anglais : courant
+
+% =========================
+% Centres d'intérêt
+% =========================
+\cvsection{Centres d'intérêt}
+
+\begin{itemize}[left=0pt, label=\textbullet, nosep]
+  \item Informatique : veille technologique, auto-hébergement, open source, vie privée, AI/LLM, sécurité informatique
+  \item Intérêts personnels : impression 3D/gravure et découpe laser, bricolage, DIY, Arduino/ESP32, cuisine/pâtisserie
+\end{itemize}
+
+\end{document}
