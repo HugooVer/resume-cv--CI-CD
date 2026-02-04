@@ -13,6 +13,12 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Install (make4ht) texlive-extra-utils
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-extra-utils
+
     - name: Create html css
       shell: bash
       env:
