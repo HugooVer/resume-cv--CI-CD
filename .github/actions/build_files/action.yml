@@ -17,7 +17,7 @@ runs:
       shell: bash
       run: |
         sudo apt-get update
-        sudo apt-get install -y texlive-extra-utils
+        sudo apt-get install -y texlive-extra-utils texlive-latex-extra texlive-lang-french
 
     - name: Create html css
       shell: bash
