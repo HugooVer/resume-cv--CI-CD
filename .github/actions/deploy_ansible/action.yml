@@ -1,0 +1,26 @@
+name: 'Ansible deployment'
+description: 'Send files via Ansible'
+inputs:
+  ssh_key:
+    description: 'key for ssh'
+    required: true
+  host:
+    description: 'ip host for ssh'
+    required: true
+  user:
+    description: 'user for ssh'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+  - name: Ansible playbook
+    uses: dawidd6/action-ansible-playbook@v2
+    with:
+      playbook: ./ansible/playbook.yml
+      key: ${{ inputs.ssh_key }}
+      inventory: |
+        [vps]
+        ${{ inputs.host }} ansible_user=${{ inputs.user }}
+      options: |
+        --extra-vars "ansible_ssh_common_args='-o StrictHostKeyChecking=no'"

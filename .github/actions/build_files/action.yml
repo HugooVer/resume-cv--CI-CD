@@ -1,0 +1,24 @@
+name: 'file creation'
+description: 'create file'
+inputs:
+  mail:
+    description: 'mail'
+    required: true
+  name:
+    description: 'name'
+    required: true
+  phone:
+    description: 'phone'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Create html css
+      shell: bash
+      env:
+        MAIL: ${{ inputs.mail }}
+        NAME: ${{ inputs.name }}
+        PHONE: ${{ inputs.phone }}
+      run: |
+        chmod +x ./CLI_html_css_creation.sh
+        ./CLI_html_css_creation.sh CV_HugooVer.tex

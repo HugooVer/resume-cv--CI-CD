@@ -1,0 +1,26 @@
+name: Pipeline for deploying html
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  runer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: File creation
+        uses: ./.github/actions/build_files
+        with:
+          name: ${{ secrets.FAKE_NAME }}
+          mail: ${{ secrets.FAKE_MAIL }}
+          phone: ${{ secrets.FAKE_NUMBER }}
+
+      - name: Ansible deployment
+        uses: ./.github/actions/deploy_ansible
+        with:
+          ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.VPS_HOST }}
+          user: ${{ secrets.VPS_USER }}

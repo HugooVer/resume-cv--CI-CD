@@ -1,0 +1,17 @@
+---
+
+- name: Deploy html
+  ansible.builtin.copy:
+    src: ../html_buid/CV/HugooVer.html
+    dest: /opt/website_cv/html/cv.html
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Deploy css
+  ansible.builtin.copy:
+    src: ../html_buid/CV/HugooVer.css
+    dest: /opt/website_cv/html/cv.css
+    owner: root
+    group: root
+    mode: '0644'
