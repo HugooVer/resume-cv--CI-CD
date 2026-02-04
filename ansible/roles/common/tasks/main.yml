@@ -2,7 +2,7 @@
 
 - name: Deploy html
   ansible.builtin.copy:
-    src: ../html_buid/CV_HugooVer.html
+    src: ../html_build/CV_HugooVer.html
     dest: /opt/website_cv/html/cv.html
     owner: root
     group: root
@@ -10,7 +10,7 @@
 
 - name: Deploy css
   ansible.builtin.copy:
-    src: ../html_buid/CV_HugooVer.css
+    src: ../html_build/CV_HugooVer.css
     dest: /opt/website_cv/html/cv.css
     owner: root
     group: root
