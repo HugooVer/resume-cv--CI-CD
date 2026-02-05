@@ -22,12 +22,13 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Install (make4ht) texlive-extra-utils
+    - name: Install (make4ht) texlive-extra-utils, latexmk
       shell: bash
       run: |
         sudo rm -f /etc/apt/sources.list.d/*.list
         sudo apt-get update
         sudo apt-get install -y texlive-extra-utils texlive-latex-extra texlive-lang-french
+        sudo apt-get install -y latexmk
 
     - name: Create html css
       shell: bash
