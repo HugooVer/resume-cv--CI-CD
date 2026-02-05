@@ -21,7 +21,7 @@ envsubst '$MAIL $PHONE $NAME' < "$INPUT" > "$TEMP_INPUT"
 
 echo "Compiling $TEMP_INPUT -> HTML in $OUTPUT_DIR/"
 
-make4ht -d "$OUTPUT_DIR" --utf8 "$TEMP_INPUT"
+make4ht -c config.cfg -d "$OUTPUT_DIR" --utf8 "$TEMP_INPUT"
 make4ht -m clean "$TEMP_INPUT"
 
 cd html_build
