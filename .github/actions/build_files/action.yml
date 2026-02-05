@@ -43,9 +43,9 @@ runs:
     - name: Create pdf
       shell: bash
       env:
-        MAIL: ${{ inputs.fName }}
-        NAME: ${{ inputs.fMail }}
-        PHONE: ${{ inputs.fPhone }}
+        MAIL: ${{ inputs.mail }}
+        NAME: ${{ inputs.name }}
+        PHONE: ${{ inputs.phone }}
       run: |
         chmod +x ./CLI_pdf_creation.sh
         ./CLI_pdf_creation.sh cv.tex
