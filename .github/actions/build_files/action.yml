@@ -28,4 +28,4 @@ runs:
         PHONE: ${{ inputs.phone }}
       run: |
         chmod +x ./CLI_html_css_creation.sh
-        ./CLI_html_css_creation.sh CV_HugooVer.tex
+        ./CLI_html_css_creation.sh cv.tex
