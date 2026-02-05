@@ -14,9 +14,12 @@ jobs:
       - name: File creation
         uses: ./.github/actions/build_files
         with:
-          name: ${{ secrets.FAKE_NAME }}
-          mail: ${{ secrets.FAKE_MAIL }}
-          phone: ${{ secrets.FAKE_NUMBER }}
+          fname: ${{ secrets.FAKE_NAME }}
+          fmail: ${{ secrets.FAKE_MAIL }}
+          fphone: ${{ secrets.FAKE_NUMBER }}
+          name: ${{ secrets.REAL_NAME }}
+          mail: ${{ secrets.REAL_MAIL }}
+          phone: ${{ secrets.REAL_NUMBER }}
 
       - name: Ansible deployment
         uses: ./.github/actions/deploy_ansible

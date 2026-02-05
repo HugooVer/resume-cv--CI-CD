@@ -1,6 +1,15 @@
 name: 'file creation'
 description: 'create file'
 inputs:
+  fmail:
+    description: 'fMail'
+    required: true
+  fname:
+    description: 'fName'
+    required: true
+  fphone:
+    description: 'fPhone'
+    required: true
   mail:
     description: 'mail'
     required: true
@@ -23,9 +32,19 @@ runs:
     - name: Create html css
       shell: bash
       env:
-        MAIL: ${{ inputs.mail }}
-        NAME: ${{ inputs.name }}
-        PHONE: ${{ inputs.phone }}
+        MAIL: ${{ inputs.fMail }}
+        NAME: ${{ inputs.fName }}
+        PHONE: ${{ inputs.fPhone }}
       run: |
         chmod +x ./CLI_html_css_creation.sh
         ./CLI_html_css_creation.sh cv.tex
+
+    - name: Create pdf
+      shell: bash
+      env:
+        MAIL: ${{ inputs.fName }}
+        NAME: ${{ inputs.fMail }}
+        PHONE: ${{ inputs.fPhone }}
+      run: |
+        chmod +x ./CLI_pdf_creation.sh
+        ./CLI_pdf_creation.sh cv.tex

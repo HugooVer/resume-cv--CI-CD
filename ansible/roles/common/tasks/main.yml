@@ -15,3 +15,11 @@
     owner: root
     group: root
     mode: '0644'
+
+- name: Upload pdf
+  ansible.builtin.copy:
+    src: ../pdf/cv.pdf
+    dest: /home/ubuntu/test
+    owner: ubuntu
+    group: ubuntu
+    mode: '0644'
