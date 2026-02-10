@@ -38,7 +38,7 @@
       \begin{minipage}[t]{0.6\textwidth}
         {\huge \textbf{\nom}}\\[0.2em]
         {\large \poste}\\[0.5em]
-        \textit{Recherche un stage de DevOps de 6 mois}
+        \textit{Recherche un stage de DevOps de 6 mois (Disponible immédiatement)}
       \end{minipage}
       \hfill
       \begin{minipage}[t]{0.35\textwidth}
@@ -68,7 +68,32 @@
 % =========================
 
 \cvsection{Objectif}
-Étudiant à l'école \textbf{42 Paris}, je recherche un \textbf{stage de 6 mois} en \textbf{DevOps} afin de mettre en pratique et d’augmenter mes compétences en administration système, automatisation et gestion d'infrastructure, et de découvrir le fonctionnement d'une équipe de production.
+Étudiant à l'école \textbf{42 Paris}, je recherche un \textbf{stage de 6 mois en DevOps}.  Passionné par l’automatisation et la culture 'Everything as Code', je souhaite mettre mes compétences en administration système et CI/CD au service d'une équipe de production
+
+\cvsection{Projets}
+\textbf{\href{https://github.com/HugooVer/my-vps}{Infrastructure Personnelle} + \href{https://github.com/HugooVer/resume-cv--CI-CD}{Déploiement Continu (VPS + CI/CD)}}.\\
+\textit{Projet personnel}
+\begin{itemize}
+  \item Provisionnement et sécurisation d'un VPS Linux via Ansible (configuration Pare-feu Iptables, accès SSH, Docker)
+  \item Déploiement d'un reverse-proxy Traefik avec gestion automatique des certificats SSL (Let's Encrypt)
+  \item Automatisation intégrale du CV : Pipeline GitHub Actions pour la compilation (LaTeX/Pandoc) et le déploiement automatique sur le serveur
+\end{itemize}
+
+\textbf{\href{https://github.com/HugooVer/discord-repo-updater}{Maintenance et Packaging de Dépôt APT (Docker + Systemd)}}.\\
+\textit{Projet personnel}
+\begin{itemize}
+  \item Développement d'un conteneur Docker pour automatiser la récupération et le packaging de logiciels tiers
+  \item Mise en place d'un dépôt APT local sécurisé pour centraliser les mises à jour via apt upgrade
+  \item Automatisation des tâches de maintenance système avec des unités systemd et scripts Bash
+\end{itemize}
+
+\cvsection{Compétences techniques}
+\textbf{Systèmes, Administration} : Linux, Scripting Bash/Shell,Gestion de services (systemd), Administration serveur\\
+\textbf{Conteneurisation} : Docker , Docker Compose , Gestion d'images (GHCR)\\
+\textbf{Infrastructure as Code} : Ansible (Playbooks & Roles), act, Automatisation de déploiement, Provisionnement de VPS\\
+\textbf{CI/CD & Qualité} : GitHub Actions, Automatisation de tests (Pytest), Linting (Ansible-lint)\\
+\textbf{Réseaux & Sécurité} : Traefik , Nginx, Iptables/Firewall, SSL/TLS (Let's Encrypt), Protocoles (TCP/IP, DNS, SSH, HTTP/s)\\
+\textbf{Développement Outils} : Python, C/C++ , Git , VS Code
 
 \cvsection{Formation}
 \textbf{École 42 Paris} \hfill Depuis fin 2022 \\
@@ -79,49 +104,24 @@ Parcours : Développement/tronc commun \\
 ESME Sudria, Paris. \\
 \textit Spécialité : Systèmes Numériques Option Informatique et Réseaux
 
-\cvsection{Compétences techniques}
-\textbf{Systèmes} : Linux (OS principal), lignes de commande (bash/sh), gestion des services, des utilisateurs et des droits.\\
-\textbf{Réseau} : Notions TCP/IP, SSH, DNS, HTTP/s.\\
-\textbf{DevOps} : Docker, Docker Compose, scripts d'automatisation, Ansible, CI/CD, GitHub Actions.\\
-\textbf{Développement} : Python, Shell, C/C++.\\
-\textbf{Outils} : Git, VS Code.
-
-\cvsection{Projets}
-\textbf{\href{https://github.com/HugooVer/discord-repo-updater}{Packaging et mise à jour d’un logiciel tiers via dépôt APT local (Docker + systemd)}}.\\
-\textit{Projet personnel}
-\begin{itemize}
-  \item Création d’un dépôt APT local alimenté par un conteneur Docker.
-  \item Automatisation avec systemd et scripts Bash.
-  \item Documentation d’usage et bonnes pratiques.
-\end{itemize}
-
-\textbf{\href{https://github.com/HugooVer/CI_CD_Explorer}{Découverte CI/CD}}.\\
-\textit{Projet personnel}
-\begin{itemize}
-  \item Développement d’une petite API REST en Python avec FastAPI et tests automatisés via pytest
-  \item Mise en place d’une chaîne CI GitHub Actions (installation des dépendances, exécution des tests sur chaque push/pull request)
-  \item Implémentation du CD via conteneur Docker et publication d’images versionnées/tagées sur GitHub Container Registry
-\end{itemize}
-
 \cvsection{Expériences professionnelles}
-\textbf{Responsable informatique/Responsable Pédagogie/Animateur} \hfill Depuis 2020 \\
-Les Petits Atomes, Paris.
+\textbf{Responsable informatique/Pédagogie, Animateur | Les Petits Atomes, Paris} \hfill Depuis 2020
 \begin{itemize}
-  \item Création et maintien d'un parc de Raspberry Pi à usage d’ordinateur
-  \item Création d'animations informatiques et scientifiques
-  \item Animation d’ateliers informatiques, robotique et scientifiques
+  \item Administrer et maintenir un parc informatique de Raspberry Pi dédié à l'apprentissage
+  \item Concevoir et animer des ateliers techniques (robotique, informatique, Arduino, Science)
+  \item Vulgariser des concepts informatique et scientifiques complexes auprès de divers publics.
 \end{itemize}
 
 \cvsection{Langues}
 \begin{itemize}
-  \item Français : langue maternelle
+  \item Français : maternelle
   \item Anglais : courant
 \end{itemize}
 
 \cvsection{Centres d'intérêt}
 \begin{itemize}
   \item Informatique : veille technologique, auto-hébergement, open source, AI/LLM, sécurité.
-  \item Intérêts personnels : impression 3D, bricolage, DIY, Arduino/ESP32, cuisine.
+  \item Intérêts personnels : impression 3D, bricolage/DIY, Arduino/ESP32, cuisine/pâtisserie.
 \end{itemize}
 
 \end{document}
