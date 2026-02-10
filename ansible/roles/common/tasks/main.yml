@@ -10,8 +10,8 @@
 
 - name: Deploy css
   ansible.builtin.copy:
-    src: ../html_build/cv.css
-    dest: /opt/website_cv/html/cv.css
+    src: ../html_build/style.css
+    dest: /opt/website_cv/html/style.css
     owner: root
     group: root
     mode: '0644'

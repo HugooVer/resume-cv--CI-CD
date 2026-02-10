@@ -1,0 +1,95 @@
+:root {
+    --orange-cv: #DD4814;
+    --grey-text: #666666;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.5;
+    max-width: 850px;
+    margin: 40px auto;
+    color: #333;
+}
+
+/* --- Desktop --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--orange-cv);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap; 
+}
+
+.header-left {
+    flex: 1;
+    min-width: 300px;
+}
+.header-left h1 { margin: 0; font-size: 2.4em; color: #000; }
+.job-title { font-size: 1.2em; font-weight: bold; margin: 0; }
+.subtitle { font-style: italic; margin: 0; color: #555; }
+
+.header-right {
+    text-align: right;
+    font-size: 0.95em;
+    color: var(--grey-text);
+}
+.header-right p { margin: 2px 0; color: #000;}
+
+/* --- Mobile --- */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-right {
+        text-align: left;
+        margin-top: 15px;
+    }
+
+    .header-left h1 {
+        font-size: 1.8em;
+    }
+}
+
+a {
+    color: var(--grey-text);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--orange-cv);
+    text-decoration: underline;
+}
+
+h2 {
+    color: var(--orange-cv);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--orange-cv);
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+ul { 
+    padding-left: 20px; 
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+li { 
+    margin-top: 0;
+    margin-bottom: 1px;
+    line-height: 1.4;
+}
+
+li p {
+    margin: 0;
+    display: inline;
+}
+
+strong { color: #111; }

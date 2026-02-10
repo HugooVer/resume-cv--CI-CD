@@ -2,33 +2,44 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-INPUT="$1"
-
-if [[ -z "${INPUT:-}" ]]; then
+INPUT="${1:-}"
+if [[ -z "$INPUT" ]]; then
   echo "Error: input .tex file is required." >&2
   exit 1
 fi
 
 OUTPUT_BASENAME="$(basename "$INPUT" .tex)"
 OUTPUT_DIR="html_build"
-
+TEMPLATE="cv_template.html"
 TEMP_INPUT="${OUTPUT_BASENAME}_build.tex"
 
 mkdir -p "$OUTPUT_DIR"
 
-echo "Injecting environment variables..."
-envsubst '$MAIL $PHONE $NAME' < "$INPUT" > "$TEMP_INPUT"
+echo "Applying HTML transformations..."
 
-echo "Compiling $TEMP_INPUT -> HTML in $OUTPUT_DIR/"
+{
+  echo '\def\ishtml{1}'
+  echo '\newcommand{\makecvheader}{}'
+  echo '\newcommand{\cvsection}[1]{\section*{#1}}'
+  cat "$INPUT"
+} | envsubst '$MAIL $PHONE $NAME' > "$TEMP_INPUT"
 
-make4ht -c config.cfg -d "$OUTPUT_DIR" --utf8 "$TEMP_INPUT"
-make4ht -m clean "$TEMP_INPUT"
+echo "Compiling HTML via Pandoc..."
+pandoc "$TEMP_INPUT" \
+  -o "${OUTPUT_DIR}/${OUTPUT_BASENAME}.html" \
+  --standalone \
+  --template="$TEMPLATE" \
+  --css="style.css" \
+  --shift-heading-level-by=1 \
+  -V NAME="$NAME" \
+  -V MAIL="$MAIL" \
+  -V PHONE="$PHONE" \
+  --metadata title="CV - $NAME"
 
-cd html_build
-mv "${OUTPUT_BASENAME}_build.html" "${OUTPUT_BASENAME}.html"
-mv "${OUTPUT_BASENAME}_build.css" "${OUTPUT_BASENAME}.css"
-sed -i "s/${OUTPUT_BASENAME}_build.css/${OUTPUT_BASENAME}.css/g" "${OUTPUT_BASENAME}.html"
-cd ..
+if [[ -f "style.css" ]]; then
+    cp style.css "$OUTPUT_DIR/style.css"
+fi
+
 rm "$TEMP_INPUT"
+echo "Done: $OUTPUT_DIR/${OUTPUT_BASENAME}.html"
 
-echo "Done. Files are in directory: $OUTPUT_DIR/"
