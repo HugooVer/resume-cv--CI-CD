@@ -38,7 +38,7 @@ runs:
         PHONE: ${{ inputs.fPhone }}
       run: |
         chmod +x ./CLI_html_css_creation.sh
-        ./CLI_html_css_creation.sh cv.tex
+        ./CLI_html_css_creation.sh
 
     - name: Create pdf
       shell: bash
@@ -49,3 +49,4 @@ runs:
       run: |
         chmod +x ./CLI_pdf_creation.sh
         ./CLI_pdf_creation.sh cv.tex
+        ./CLI_pdf_creation.sh cv_en.tex

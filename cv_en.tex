@@ -1,0 +1,128 @@
+\documentclass[10pt,a4paper]{article}
+
+% Encoding and language
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel} % Changed to English
+
+% Layout settings
+\usepackage[margin=1cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\pagestyle{empty}
+
+% Clickable links
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{enumitem}
+\setlist[itemize]{left=0pt,itemsep=1pt,label=\textbullet,nosep}
+\urlstyle{same}
+
+\usepackage{array}
+\usepackage{xcolor}
+\definecolor{sectioncolor}{RGB}{221,72,20}
+
+% Personal commands (Environment variables)
+\newcommand{\nom}{\detokenize{${NAME}}}
+\newcommand{\poste}{DevOps Intern} % Translated
+\newcommand{\mail}{\detokenize{${MAIL}}}
+\newcommand{\phone}{\detokenize{${PHONE}}}
+
+% --- DYNAMIC LOGIC: Avoid double definitions ---
+\ifdefined\ishtml
+    % Script will provide the HTML-specific definitions
+\else
+    % PDF definitions (Only used during PDF compilation)
+    \newcommand{\makecvheader}{
+      \begin{minipage}[t]{0.6\textwidth}
+        {\huge \textbf{\nom}}\\[0.2em]
+        {\large \poste}\\[0.5em]
+        \textit{Seeking a 6-month DevOps internship (Available immediately)}
+      \end{minipage}
+      \hfill
+      \begin{minipage}[t]{0.35\textwidth}
+        \begin{tabular}{@{}ll}
+          Phone: & \phone \\
+          Email: & \href{mailto:\mail}{\mail{}} \\
+          GitHub: & \href{https://github.com/HugooVer}{github.com/HugooVer} \\
+          Location: & Paris 02, France \\
+        \end{tabular}
+      \end{minipage}
+      \vspace{0.4em}
+    }
+
+    \newcommand{\cvsection}[1]{
+      \vspace{0.8em}
+      {\large\bfseries\textcolor{sectioncolor}{#1}}\\[-0.5em]
+      \rule{\linewidth}{0.4pt}\vspace{0.4em}
+    }
+\fi
+
+\begin{document}
+
+\makecvheader
+
+% =========================
+% Body
+% =========================
+
+\cvsection{Objective}
+Student at \textbf{42 Paris}, I am looking for a \textbf{6-month DevOps internship}.
+Passionate about automation and the 'Everything as Code' culture, I wish to apply my skills in system administration and CI/CD within a production team.
+
+\cvsection{Projects}
+\textbf{\href{https://github.com/HugooVer/my-vps}{Personal Infrastructure} + \href{https://github.com/HugooVer/resume-cv--CI-CD}{Continuous Deployment (VPS + CI/CD)}}.\\
+\textit{Personal project}
+\begin{itemize}
+  \item Provisioning and securing a Linux VPS via Ansible (Iptables firewall configuration, SSH access, Docker)
+  \item Deployment of a Traefik reverse-proxy with automatic SSL certificate management (Let's Encrypt)
+  \item Full CV automation: GitHub Actions pipeline for compilation (LaTeX/Pandoc) and automatic deployment to the server
+\end{itemize}
+
+\textbf{\href{https://github.com/HugooVer/discord-repo-updater}{APT Repository Maintenance and Packaging (Docker + Systemd)}}.\\
+\textit{Personal project}
+\begin{itemize}
+  \item Development of a Docker container to automate the retrieval and packaging of third-party software
+  \item Setup of a secure local APT repository to centralize updates via apt upgrade
+  \item Automation of system maintenance tasks with systemd units and Bash scripts
+\end{itemize}
+
+\cvsection{Technical Skills}
+\textbf{Systems, Administration}: Linux, Bash/Shell Scripting, Service Management (systemd), Server Administration\\
+\textbf{Containerization}: Docker, Docker Compose, Image Management (GHCR)\\
+\textbf{Infrastructure as Code}: Ansible (Playbooks Roles), act, Deployment Automation, VPS Provisioning\\
+\textbf{CI/CD Quality}: GitHub Actions, Test Automation (Pytest), Linting (Ansible-lint)\\
+\textbf{Network Security}: Traefik, Nginx, Iptables/Firewall, SSL/TLS (Let's Encrypt), Protocols (TCP/IP, DNS, SSH, HTTP/s)\\
+\textbf{Development Tools}: Python, C/C++, Git, VS Code
+
+\cvsection{Education}
+\textbf{École 42 Paris} \hfill Since late 2022 \\
+Track: Development/Common Core \\
+\textit{Main skills:} programming logic, teamwork, concrete projects, self-learning.
+
+\textbf{Higher National Diploma (HND) in Computer Science and Networking} \hfill - 2022 \\
+ESME Sudria, Paris. \\
+\textit Two-year technical degree specializing in IT systems and networks (BTS SN-IR, France)
+
+\cvsection{Professional Experience}
+\textbf{IT/Pedagogy Manager, Event Animator | Les Petits Atomes, Paris} \hfill Since 2020
+\begin{itemize}
+  \item Administer and maintain a fleet of Raspberry Pis dedicated to learning
+  \item Design and lead technical workshops (robotics, computing, Arduino, Science)
+  \item Popularize complex computer and scientific concepts for various audiences.
+\end{itemize}
+
+\cvsection{Languages}
+\begin{itemize}
+  \item French: Native
+  \item English: Fluent
+\end{itemize}
+
+\cvsection{Interests}
+\begin{itemize}
+  \item Computing: tech watch, self-hosting, open source, AI/LLM, security.
+  \item Personal interests: 3D printing, DIY/Maker, Arduino/ESP32, baking/pastry.
+\end{itemize}
+
+\end{document}

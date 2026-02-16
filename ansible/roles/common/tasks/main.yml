@@ -1,6 +1,22 @@
 ---
 
-- name: Deploy html
+- name: Create directory for French version subpath
+  ansible.builtin.file:
+    path: /opt/website_cv/html/fr
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Create directory for English version subpath
+  ansible.builtin.file:
+    path: /opt/website_cv/html/en
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Deploy htmlv (main)
   ansible.builtin.copy:
     src: ../html_build/cv.html
     dest: /opt/website_cv/html/cv.html
@@ -8,7 +24,7 @@
     group: root
     mode: '0644'
 
-- name: Deploy css
+- name: Deploy css (main)
   ansible.builtin.copy:
     src: ../html_build/style.css
     dest: /opt/website_cv/html/style.css
@@ -16,9 +32,49 @@
     group: root
     mode: '0644'
 
-- name: Upload pdf
+- name: Deploy French html to French folder
+  ansible.builtin.copy:
+    src: ../html_build/cv.html
+    dest: /opt/website_cv/html/fr/index.html
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Deploy css to French folder
+  ansible.builtin.copy:
+    src: ../html_build/style.css
+    dest: /opt/website_cv/html/fr/style.css
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Deploy English html to english folder
+  ansible.builtin.copy:
+    src: ../html_build/cv_en.html
+    dest: /opt/website_cv/html/en/index.html
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Deploy css to French folder
+  ansible.builtin.copy:
+    src: ../html_build/style.css
+    dest: /opt/website_cv/html/en/style.css
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Upload fr_pdf
   ansible.builtin.copy:
     src: ../pdf/cv.pdf
+    dest: /home/ubuntu/test
+    owner: ubuntu
+    group: ubuntu
+    mode: '0644'
+
+- name: Upload en_pdf
+  ansible.builtin.copy:
+    src: ../pdf/cv_en.pdf
     dest: /home/ubuntu/test
     owner: ubuntu
     group: ubuntu
