@@ -25,14 +25,14 @@ for INPUT in "${!FILES_MAP[@]}"; do
     fi
 
     if [[ "$LANG_CODE" == "fr" ]]; then
-        JOB_TITLE="Stage DevOps"
-        SUBTITLE="Recherche un stage de DevOps de 6 mois"
+        JOB_TITLE="Ingénieur DevOps / SRE"
+        SUBTITLE="Disponible immédiatement | Ouvert à un premier CDI ou Stage de 6 mois"
         LABEL_PHONE="Téléphone:"
         LOCATION="Ville: Paris 02, France"
         TITLE_META="CV - $NAME"
     else
-        JOB_TITLE="DevOps Internship"
-        SUBTITLE="Looking for a 6-month DevOps internship"
+        JOB_TITLE="DevOps / SRE Engineer"
+        SUBTITLE="Available Immediately | Open to a first contract or a 6 month internship"
         LABEL_PHONE="Phone:"
         LOCATION="Location: Paris 02, France"
         TITLE_META="Resume - $NAME"
